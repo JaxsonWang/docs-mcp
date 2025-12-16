@@ -1,16 +1,16 @@
 {
   "name": "@jaxsonwang/docs-mcp",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Local-only Node.js CLI + MCP server for ingesting Markdown docs and exposing retrieval tools",
   "type": "module",
   "engines": {
     "node": ">=18.18.0"
   },
   "bin": {
-    "@jaxsonwang/docs-mcp": "./dist/bin/docs-mcp.js",
-    "@jaxsonwang/ingest-docs": "./dist/bin/ingest-docs.js",
-    "@jaxsonwang/query-docs": "./dist/bin/query-docs.js",
-    "@jaxsonwang/mcp-docs-server": "./dist/bin/mcp-docs-server.js"
+    "docs-mcp": "./dist/bin/docs-mcp.js",
+    "ingest-docs": "./dist/bin/ingest-docs.js",
+    "query-docs": "./dist/bin/query-docs.js",
+    "mcp-docs-server": "./dist/bin/mcp-docs-server.js"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",

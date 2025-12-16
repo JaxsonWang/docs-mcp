@@ -1,7 +1,7 @@
 {
-  "name": "docs-mcp",
+  "name": "@jaxsonwang/docs-mcp",
   "version": "0.2.0",
-  "description": "Local-only Node.js CLI + MCP server for ScriptingApp documentation indexes",
+  "description": "Local-only Node.js CLI + MCP server for ingesting Markdown docs and exposing retrieval tools",
   "type": "module",
   "engines": {
     "node": ">=18.18.0"
@@ -28,7 +28,18 @@
     "local",
     "embeddings"
   ],
-  "author": "ScriptingApp",
+  "bugs": {
+    "url": "https://github.com/JaxsonWang/docs-map/issues"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JaxsonWang/docs-map.git"
+  },
+  "homepage": "https://github.com/JaxsonWang/docs-map#readme",
+  "author": "Jaxson Wang",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.25.0",

@@ -64,7 +64,7 @@ npx docs-mcp ingest \
 - `--docs-root PATH[:LANG]`：可重复传入，默认 `docs/en:en`。语言标签写入 metadata，用于后续过滤。
 - `--persist-dir`：索引输出目录（默认 `storage/llamaindex`）。加 `--clean` 会先删除旧索引。
 - `--extensions`：默认 `.md .mdx`。
-- `--embedding-model`：任意 `@xenova/transformers` 支持的本地模型（建议 `Xenova/bge-base-zh-v1.5` / `Xenova/bge-base-en-v1.5`）。
+- `--embedding-model`：任意 `@xenova/transformers` 支持的[本地模型](https://huggingface.co/models?sort=trending&search=Xenova%2Fbge)（建议 `Xenova/bge-base-zh-v1.5` / `Xenova/bge-base-en-v1.5`）。
 
 摄取完成后会在 `persistDir/index.json` 写入：
 
@@ -142,4 +142,3 @@ npx docs-mcp mcp \
 ## License
 
 MIT
-

@@ -2,15 +2,9 @@ name: Publish Package
 
 on:
   workflow_dispatch:
-    inputs:
-      release_phrase:
-        description: "Enter release phrase to confirm publish"
-        required: true
-        type: string
 
 jobs:
   publish:
-    if: ${{ inputs.release_phrase == 'release-docs-mcp' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

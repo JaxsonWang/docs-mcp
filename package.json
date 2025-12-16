@@ -1,0 +1,46 @@
+{
+  "name": "docs-mcp",
+  "version": "0.2.0",
+  "description": "Local-only Node.js CLI + MCP server for ScriptingApp documentation indexes",
+  "type": "module",
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "bin": {
+    "docs-mcp": "./dist/bin/docs-mcp.js",
+    "ingest-docs": "./dist/bin/ingest-docs.js",
+    "query-docs": "./dist/bin/query-docs.js",
+    "mcp-docs-server": "./dist/bin/mcp-docs-server.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf dist",
+    "lint": "tsc --noEmit"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "docs",
+    "mcp",
+    "llama",
+    "cli",
+    "local",
+    "embeddings"
+  ],
+  "author": "ScriptingApp",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.0",
+    "@xenova/transformers": "^2.17.2",
+    "commander": "^14.0.2",
+    "fast-glob": "^3.3.3",
+    "zod": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.2",
+    "rimraf": "^6.1.2",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "pnpm@10.26.0+sha512.3b3f6c725ebe712506c0ab1ad4133cf86b1f4b687effce62a9b38b4d72e3954242e643190fc51fa1642949c735f403debd44f5cb0edd657abe63a8b6a7e1e402"
+}

@@ -1,0 +1,40 @@
+name: Publish Package
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_phrase:
+        description: "Enter release phrase to confirm publish"
+        required: true
+        type: string
+
+jobs:
+  publish:
+    if: ${{ inputs.release_phrase == 'release-docs-mcp' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint (tsc --noEmit)
+        run: pnpm run lint
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Publish to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm publish --access public

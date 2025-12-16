@@ -1,6 +1,6 @@
 # Docs Query MCP - Node.js
 
-> 🚀 100% Node.js / TypeScript + 本地嵌入模型实现，可直接通过 `npx docs-mcp <command>` 使用。
+> 🚀 100% Node.js / TypeScript + 本地嵌入模型实现，可直接通过 `npx @jaxsonwang/docs-mcp <command>` 使用。
 
 这是一个原生 Node.js/TypeScript 项目，所有功能都封装为 npm 包，可通过 `npm install` 本地运行，也可以在未克隆仓库的情况下用 `npx` 直接拉起 CLI。摄取目标不限于某个特定仓库，只要是 Markdown/MDX 文档（或你扩展的扩展名），即可构建本地向量索引与 MCP 工具，对任意项目实现“提取→检索→MCP 暴露”的通用流程。
 
@@ -9,7 +9,7 @@
 - **通用文档提取**：任意 Markdown/MDX 目录都能摄取；你可为公司知识库、产品手册或博客生成同一套索引与 MCP 工具。
 - **纯 Node 环境**：无需额外 runtime，直接 `npm install` 即可构建。
 - **只支持本地模型**：默认使用 `@xenova/transformers` 提供的量化版 `Xenova/bge-base-zh-v1.5`，完全离线。
-- **多入口 CLI**：`ingest-docs`、`query-docs`、`mcp-docs-server` 三个命令可单独执行，也可通过总入口 `docs-mcp <command>` 运行，方便 `npx` 调用。
+- **多入口 CLI**：`ingest-docs`、`query-docs`、`mcp-docs-server` 三个命令可单独执行，也可通过总入口 `docs-mcp <command>` 运行，方便 `npx` 调用（`npx @jaxsonwang/docs-mcp <command>`）。
 - **统一持久化**：索引以 `storage/llamaindex/index.json` 存储，`ingest` / `query` / `MCP` 共用该文件。
 - **FastMCP 支持**：`mcp-docs-server` 用 @modelcontextprotocol/sdk 暴露 `docs_query` 工具，CLI 可以直接挂载。
 
@@ -38,22 +38,22 @@ node dist/bin/mcp-docs-server.js --persist-dir storage/llamaindex
 发布到 npm 之后，可直接通过下列命令远程执行（无需克隆）：
 
 ```bash
-npx docs-mcp ingest \
+npx @jaxsonwang/docs-mcp ingest \
   --docs-root /abs/path/docs/zh:zh --persist-dir storage/llamaindex --clean
 
-npx docs-mcp query "How do I customize navigation?" --model raw
+npx @jaxsonwang/docs-mcp query "How do I customize navigation?" --model raw
 
-npx docs-mcp mcp --persist-dir storage/llamaindex --default-k 6
+npx @jaxsonwang/docs-mcp mcp --persist-dir storage/llamaindex --default-k 6
 ```
 
-`npx docs-mcp <command>` 会根据 `<command>` 派发到对应二进制；如果你更喜欢直接调用，也可以 `npx docs-mcp ingest-docs ...`。
+`npx @jaxsonwang/docs-mcp <command>` 会根据 `<command>` 派发到对应二进制；如果你更喜欢直接调用，也可以 `npx @jaxsonwang/docs-mcp ingest-docs ...`。
 
 ## 命令详解
 
 ### ingest-docs
 
 ```bash
-npx docs-mcp ingest \
+npx @jaxsonwang/docs-mcp ingest \
   --docs-root /abs/path/docs/en:en \
   --docs-root /abs/path/docs/zh:zh \
   --persist-dir storage/llamaindex --clean \
@@ -86,7 +86,7 @@ npx docs-mcp ingest \
 ### query-docs
 
 ```bash
-npx docs-mcp query "How do I customize navigation?" \
+npx @jaxsonwang/docs-mcp query "How do I customize navigation?" \
   --persist-dir storage/llamaindex --k 5 --model raw
 ```
 
@@ -97,7 +97,7 @@ npx docs-mcp query "How do I customize navigation?" \
 ### mcp-docs-server
 
 ```bash
-npx docs-mcp mcp \
+npx @jaxsonwang/docs-mcp mcp \
   --persist-dir storage/llamaindex \
   --embedding-model Xenova/bge-base-zh-v1.5 \
   --default-k 4
@@ -112,7 +112,7 @@ npx docs-mcp mcp \
   "servers": {
     "docs_mcp": {
       "command": "npx",
-      "args": ["docs-mcp", "mcp", "--persist-dir", "/abs/path/storage/llamaindex"]
+      "args": ["@jaxsonwang/docs-mcp", "mcp", "--persist-dir", "/abs/path/storage/llamaindex"]
     }
   }
 }

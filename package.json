@@ -31,9 +31,6 @@
   "bugs": {
     "url": "https://github.com/JaxsonWang/docs-mcp/issues"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/JaxsonWang/docs-mcp.git"

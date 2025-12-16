@@ -1,6 +1,6 @@
 {
   "name": "@jaxsonwang/docs-mcp",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Local-only Node.js CLI + MCP server for ingesting Markdown docs and exposing retrieval tools",
   "type": "module",
   "engines": {

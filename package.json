@@ -29,16 +29,16 @@
     "embeddings"
   ],
   "bugs": {
-    "url": "https://github.com/JaxsonWang/docs-map/issues"
+    "url": "https://github.com/JaxsonWang/docs-mcp/issues"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/JaxsonWang/docs-map.git"
+    "url": "https://github.com/JaxsonWang/docs-mcp.git"
   },
-  "homepage": "https://github.com/JaxsonWang/docs-map#readme",
+  "homepage": "https://github.com/JaxsonWang/docs-mcp#readme",
   "author": "Jaxson Wang",
   "license": "MIT",
   "dependencies": {

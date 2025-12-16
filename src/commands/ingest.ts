@@ -24,7 +24,7 @@ export async function runIngest(argv: string[]): Promise<void> {
   const program = new Command();
   program
     .name("ingest-docs")
-    .description("Build a local vector store for ScriptingApp docs")
+    .description("Build a local vector store for your docs")
     .option(
       "--docs-root <path:lang>",
       "Docs root plus optional language tag",

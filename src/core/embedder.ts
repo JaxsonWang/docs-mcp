@@ -1,11 +1,5 @@
-import {
-  env,
-  pipeline,
-  type FeatureExtractionPipeline,
-  type PipelineType,
-} from "@xenova/transformers";
-
-env.allowLocalModels = true;
+import type { FeatureExtractionPipeline, PipelineType } from "@xenova/transformers";
+import { loadTransformersModule } from "./transformers-loader";
 
 export class EmbeddingModel {
   private readonly modelName: string;
@@ -15,11 +9,14 @@ export class EmbeddingModel {
     this.modelName = modelName;
   }
 
-  private loadPipeline(): Promise<FeatureExtractionPipeline> {
+  private async loadPipeline(): Promise<FeatureExtractionPipeline> {
     if (!this.pipelinePromise) {
-      this.pipelinePromise = pipeline("feature-extraction" as PipelineType, this.modelName, {
-        quantized: true,
-      }) as Promise<FeatureExtractionPipeline>;
+      this.pipelinePromise = (async () => {
+        const { pipeline } = await loadTransformersModule();
+        return (pipeline("feature-extraction" as PipelineType, this.modelName, {
+          quantized: true,
+        }) as Promise<FeatureExtractionPipeline>);
+      })();
     }
     return this.pipelinePromise;
   }

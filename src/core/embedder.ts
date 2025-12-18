@@ -1,5 +1,5 @@
 import type { FeatureExtractionPipeline, PipelineType } from "@xenova/transformers";
-import { loadTransformersModule } from "./transformers-loader";
+import { loadTransformersModule } from "./transformers-loader.js";
 
 export class EmbeddingModel {
   private readonly modelName: string;
